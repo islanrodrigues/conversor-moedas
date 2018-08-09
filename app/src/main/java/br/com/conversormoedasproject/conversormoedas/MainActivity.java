@@ -23,7 +23,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         this.mViewHolder.buttonCalculate = (Button) findViewById(R.id.button_calculate);
 
         this.mViewHolder.buttonCalculate.setOnClickListener(this);
-    }
+
+        this.clearFields();
+
+    }   //close onCreate method
 
     @Override
     public void onClick(View view) {
@@ -38,7 +41,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         }
 
-    }
+    }   //close Onclick method
+
+
+    public  void clearFields () {
+
+        this.mViewHolder.textDolar.setText("");
+        this.mViewHolder.textEuro.setText("");
+
+    }   //close clearFields method
 
 
     private static class ViewHolder {
@@ -47,5 +58,5 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         TextView textEuro;
         Button buttonCalculate;
 
-    }
+    }   // close ViewHolder class
 }
