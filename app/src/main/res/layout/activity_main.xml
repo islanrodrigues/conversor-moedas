@@ -72,5 +72,14 @@
         android:background="@color/colorAccent"
         android:textColor="@color/colorText"/>
 
+    <TextView
+        android:id="@+id/text_message_error"
+        android:layout_marginTop="30dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:gravity="center"
+        android:textColor="@color/colorMessage" />
+
 
 </LinearLayout>
