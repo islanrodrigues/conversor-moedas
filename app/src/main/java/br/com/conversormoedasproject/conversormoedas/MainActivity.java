@@ -21,6 +21,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         this.mViewHolder.textDolar = (TextView) findViewById(R.id.text_dolar);
         this.mViewHolder.textEuro = (TextView) findViewById(R.id.text_euro);
         this.mViewHolder.buttonCalculate = (Button) findViewById(R.id.button_calculate);
+        this.mViewHolder.messageError = findViewById(R.id.text_message_error);
 
         this.mViewHolder.buttonCalculate.setOnClickListener(this);
 
@@ -33,12 +34,22 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         int id = view.getId();
 
         if (id == R.id.button_calculate) {
-            Double value = Double.parseDouble(this.mViewHolder.editValue.getText().toString());
 
-            this.mViewHolder.textDolar.setText(String.format("%.2f", value * 3));
-            this.mViewHolder.textEuro.setText(String.format("%.2f", value * 4));
+            String valueEditText = mViewHolder.editValue.getText().toString();
 
+            // if the input field is empty
+            if (valueEditText.equals("") || valueEditText.length() == 0) {
+                mViewHolder.messageError.setText("O campo de entrada está vazio! Preencha e tente novamente.");
 
+            } else {
+                mViewHolder.messageError.setText("");
+
+                Double value = Double.parseDouble(this.mViewHolder.editValue.getText().toString());
+
+                this.mViewHolder.textDolar.setText(String.format("%.2f", value * 3));
+                this.mViewHolder.textEuro.setText(String.format("%.2f", value * 4));
+
+            }
         }
 
     }   //close Onclick method
@@ -52,11 +63,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }   //close clearFields method
 
 
+
+
     private static class ViewHolder {
         EditText editValue;
         TextView textDolar;
         TextView textEuro;
         Button buttonCalculate;
+        TextView messageError;
 
     }   // close ViewHolder class
 }
