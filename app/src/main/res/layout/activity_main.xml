@@ -19,7 +19,8 @@
         android:id="@+id/edit_value"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="@string/valor"/>
+        android:hint="@string/valor"
+        android:inputType="numberSigned" />
 
     <TextView
         android:layout_width="match_parent"
