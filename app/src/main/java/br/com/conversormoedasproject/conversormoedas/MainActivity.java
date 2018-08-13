@@ -2,10 +2,12 @@ package br.com.conversormoedasproject.conversormoedas;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -39,7 +41,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
             // if the input field is empty
             if (valueEditText.equals("") || valueEditText.length() == 0) {
-                mViewHolder.messageError.setText("O campo de entrada está vazio! Preencha e tente novamente.");
+                //mViewHolder.messageError.setText("O campo de entrada está vazio! Preencha e tente novamente.");
+
+                Toast.makeText(getApplicationContext(), "O campo de entrada está vazio! Preencha e tente novamente", Toast.LENGTH_SHORT).show();
+                this.mViewHolder.textDolar.setText("");
+                this.mViewHolder.textEuro.setText("");
 
             } else {
                 mViewHolder.messageError.setText("");
