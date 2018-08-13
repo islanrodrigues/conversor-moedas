@@ -10,3 +10,4 @@
 .externalNativeBuild
 *.log
 /.idea/*
+/.idea/caches
